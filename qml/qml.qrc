@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>TLineEdit.qml</file>
+        <file>TTextEdit.qml</file>
+        <file>ClickableImage.qml</file>
+        <file>MyButton.qml</file>
+    </qresource>
+</RCC>
