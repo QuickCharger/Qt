@@ -30,3 +30,4 @@ SUBDIRS += \
     demo\
     light\
     music\
+    uml\
