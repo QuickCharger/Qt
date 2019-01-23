@@ -13,10 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    midWindow.cpp
+	mainwindow.cpp \
+	midWindow.cpp\
+	curtail.cpp\
+	zoomArea.cpp
 
-HEADERS  += mainwindow.h \
-    midWindow.h
+HEADERS  += Qt.h\
+	mainwindow.h \
+	midWindow.h\
+	curtail.h\
+	zoomArea.h
 
 FORMS    += mainwindow.ui

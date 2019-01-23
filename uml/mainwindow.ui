@@ -6,173 +6,174 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>981</width>
-    <height>715</height>
+    <width>932</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="leftWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>200</width>
-      <height>640</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>200</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>11</y>
-       <width>96</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Working Diagrams</string>
-     </property>
-    </widget>
-    <widget class="QListView" name="listView">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>29</y>
-       <width>178</width>
-       <height>287</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>324</y>
-       <width>54</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QListView" name="listView_2">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>342</y>
-       <width>178</width>
-       <height>287</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="rightWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>772</x>
-      <y>9</y>
-      <width>200</width>
-      <height>640</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>200</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <widget class="QListView" name="listView_3">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>29</y>
-       <width>178</width>
-       <height>287</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>11</y>
-       <width>54</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QListView" name="listView_4">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>342</y>
-       <width>178</width>
-       <height>287</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>324</y>
-       <width>54</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>0</y>
-      <width>561</width>
-      <height>641</height>
-     </rect>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>559</width>
-       <height>639</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="MidWindow" name="midWidget" native="true"/>
-      </item>
-     </layout>
-    </widget>
-   </widget>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="leftWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>96</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Working Diagrams</string>
+       </property>
+      </widget>
+      <widget class="QListView" name="listView">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>29</y>
+         <width>178</width>
+         <height>287</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>324</y>
+         <width>54</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QListView" name="listView_2">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>342</y>
+         <width>178</width>
+         <height>287</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="MidWindow" name="midWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>500</width>
+         <height>637</height>
+        </rect>
+       </property>
+       <widget class="ZoomArea" name="zoomArea" native="true">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>470</y>
+          <width>141</width>
+          <height>141</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="rightWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <widget class="QListView" name="listView_3">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>29</y>
+         <width>178</width>
+         <height>287</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>54</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QListView" name="listView_4">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>342</y>
+         <width>178</width>
+         <height>287</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>324</y>
+         <width>54</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>981</width>
+     <width>932</width>
      <height>23</height>
     </rect>
    </property>
@@ -216,7 +217,13 @@
   <customwidget>
    <class>MidWindow</class>
    <extends>QWidget</extends>
-   <header>midwindow.h</header>
+   <header>midWindow.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ZoomArea</class>
+   <extends>QWidget</extends>
+   <header>zoomArea.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
