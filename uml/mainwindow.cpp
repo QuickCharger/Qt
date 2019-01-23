@@ -8,11 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
-	ui->zoomArea->setParent(ui->scrollArea);
-	QScrollBar *pBar = ui->scrollArea->horizontalScrollBar();
-	connect(pBar, &QScrollBar::valueChanged, ui->zoomArea, &ZoomArea::slot_ScrollAreaValueChanged);
-	pBar = ui->scrollArea->verticalScrollBar();
-	connect(pBar, &QScrollBar::valueChanged, ui->zoomArea, &ZoomArea::slot_ScrollAreaValueChanged);
+	QGridLayout* gridLayout = new QGridLayout(ui->scrollArea);
+	gridLayout->setContentsMargins(0, 0, 30, 30);
+	QSpacerItem *verticalSpacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+	gridLayout->addItem(verticalSpacer, 0, 1);
+	QSpacerItem *horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	gridLayout->addItem(horizontalSpacer, 1, 0);
+	gridLayout->addWidget(ui->zoomArea, 1, 1);
 }
 
 MainWindow::~MainWindow()
