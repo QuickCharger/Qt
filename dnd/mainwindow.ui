@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainwindow</class>
+ <widget class="QWidget" name="mainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>756</width>
+    <height>629</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="DragArea" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="DropArea" name="widget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>10</y>
+     <width>581</width>
+     <height>611</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="DragLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>280</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>dragLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DragArea</class>
+   <extends>QWidget</extends>
+   <header>dragarea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DropArea</class>
+   <extends>QWidget</extends>
+   <header>droparea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DragLabel</class>
+   <extends>QLabel</extends>
+   <header>draglabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

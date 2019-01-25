@@ -25,7 +25,7 @@
 TEMPLATE     = subdirs
 
 SUBDIRS += \
-    drop\
+    dnd\
     qml\
     demo\
     light\
