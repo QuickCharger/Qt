@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = uml
 TEMPLATE = app
 
+include(component/component.pri)
 
 SOURCES += main.cpp\
 	mainwindow.cpp \

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "zoomArea.h"
+#include "component.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -8,6 +9,37 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
+	InitUI();
+	InitComponent();
+}
+
+MainWindow::~MainWindow()
+{
+	delete ui;
+}
+
+void MainWindow::InitUI()
+{
+	initZoomArea();
+}
+
+void MainWindow::InitComponent()
+{
+	QListWidget* gadgetList = ui->gadgetList;
+	QVector<QWidget*> allComponentLabel = GetAllComponentLabel();
+	for (auto it = allComponentLabel.begin(); it != allComponentLabel.end(); ++it)
+	{
+		QListWidgetItem *item = new QListWidgetItem();
+		gadgetList->addItem(item);
+		gadgetList->setItemWidget(item, *it);
+	}
+}
+
+/*
+* 手动初始化zoomArea. ui中的zoomArea由于编辑器的限制 不能把zoomArea挂在scrollArea上
+*/
+void MainWindow::initZoomArea()
+{
 	QGridLayout* gridLayout = new QGridLayout(ui->scrollArea);
 	gridLayout->setContentsMargins(0, 0, 30, 30);
 	QSpacerItem *verticalSpacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -15,9 +47,4 @@ MainWindow::MainWindow(QWidget *parent) :
 	QSpacerItem *horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 	gridLayout->addItem(horizontalSpacer, 1, 0);
 	gridLayout->addWidget(ui->zoomArea, 1, 1);
-}
-
-MainWindow::~MainWindow()
-{
-	delete ui;
 }

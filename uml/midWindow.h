@@ -12,6 +12,12 @@ public:
 	~MidWindow();
 protected:
 	virtual void paintEvent(QPaintEvent *event);
+
+	void dragEnterEvent(QDragEnterEvent *event);
+	void dragMoveEvent(QDragMoveEvent *event);
+	void dragLeaveEvent(QDragLeaveEvent *event);
+	void dropEvent(QDropEvent *event);
+
 private:
 	Curtail *m_pCurtain = nullptr;
 	const int s_kCurtainWidth = 2000;

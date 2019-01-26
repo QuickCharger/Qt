@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include "Qt.h"
 
@@ -15,8 +14,10 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+	void InitUI();
+	void InitComponent();
+
 private:
+	void initZoomArea();
 	Ui::MainWindow *ui;
 };
-
-#endif // MAINWINDOW_H
