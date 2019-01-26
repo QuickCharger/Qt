@@ -21,6 +21,7 @@ MainWindow::~MainWindow()
 void MainWindow::InitUI()
 {
 	initZoomArea();
+	ui->zoomArea->SetObserve(ui->scrollAreaWidgetContents);
 }
 
 void MainWindow::InitComponent()
@@ -36,7 +37,7 @@ void MainWindow::InitComponent()
 }
 
 /*
-* 手动初始化zoomArea. ui中的zoomArea由于编辑器的限制 不能把zoomArea挂在scrollArea上
+* 手动初始化zoomArea. ui中的zoomArea. 由于编辑器的限制 不能把zoomArea挂在scrollArea上
 */
 void MainWindow::initZoomArea()
 {

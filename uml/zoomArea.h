@@ -16,6 +16,7 @@ class ZoomArea : public QWidget
 public:
 	ZoomArea(QWidget *parent = nullptr);
 	~ZoomArea();
+	void SetObserve(QWidget* observe);
 
 protected:
 	void mousePressEvent(QMouseEvent *);
@@ -23,5 +24,6 @@ protected:
 	void paintEvent(QPaintEvent *);
 
 private:
-	ZoomAreaShadow m_pShadow;
+	ZoomAreaShadow	m_pShadow;
+	QWidget			*m_obj;
 };

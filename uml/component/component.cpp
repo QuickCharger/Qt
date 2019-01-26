@@ -6,7 +6,7 @@ QWidget* CreateComponent(QString& name)
 {
 	if (name == "class")
 	{
-		return new CClassDiagram;
+		return new CClassDiagram();
 	}
 	return nullptr;
 }

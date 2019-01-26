@@ -25,6 +25,11 @@ ZoomArea::~ZoomArea()
 {
 }
 
+void ZoomArea::SetObserve(QWidget* observe)
+{
+	m_obj = observe;
+}
+
 void ZoomArea::mousePressEvent(QMouseEvent *)
 {
 
@@ -39,4 +44,9 @@ void ZoomArea::paintEvent(QPaintEvent *)
 {
 	QPainter painter(this);
 	painter.fillRect(0, 0, this->width(), this->height(), Qt::white);
+	if (m_obj)
+	{
+		qDebug() << "ZoomArea paintEvent " << rand();
+		painter.drawPixmap(0, 0, this->width(), this->height(), m_obj->grab());
+	}
 }

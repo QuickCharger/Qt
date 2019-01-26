@@ -1,6 +1,5 @@
 #include "class.h"
 #include "ui_class.h"
-#include "curtail.h"
 
 CClassLabel::CClassLabel()
 {
@@ -41,18 +40,17 @@ void CClassLabel::mouseMoveEvent(QMouseEvent *event)
 	}
 }
 
-CClassDiagram::CClassDiagram()
+CClassDiagram::CClassDiagram(QWidget* parent)
 	: ui(new Ui::CClassDiagram)
+	, QWidget(parent)
 {
 	ui->setupUi(this);
 
-	//this->setAttribute(Qt::WA_StyledBackground);
-	setStyleSheet("QFrame{"
-		//"background-color:#FFFFFF;"
-		"border:2px solid gray;"
-		"}");
+	this->setAttribute(Qt::WA_StyledBackground);
 
-	m_pCurtain = new Curtail(width(), height(), 0, 0);
+	setStyleSheet("CClassDiagram { background-color:#FFFFFF; border:2px solid gray; }"
+		//"[accessibleName=\"widget_operation\"] { background-color:#FFFFFF; border:2px solid gray; }"
+		"[accessibleName=\"widget_attribute\"] { background-color:#FFFFFF; border:2px solid gray; }");
 
 	connect(ui->btn_add_attribute, &QPushButton::clicked, this, [&]() {
 		QLabel *l = new QLabel("Attribute");
@@ -73,12 +71,8 @@ CClassDiagram::~CClassDiagram()
 
 void CClassDiagram::paintEvent(QPaintEvent *)
 {
+	//qDebug() << "CClassDiagram::paintEvent. sizeHint: " << sizeHint() << rand();
 	setFixedSize(sizeHint());
-
-	QPainter painter(this);
-	painter.drawPixmap(0, 0, m_pCurtain->GetPixmap());
-	m_pCurtain->SetWidthHeigh(width(), height());
-
 }
 
 void CClassDiagram::mousePressEvent(QMouseEvent *event)

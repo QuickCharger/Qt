@@ -2,8 +2,6 @@
 
 #include "Qt.h"
 
-class Curtail;
-
 class CClassLabel : public QLabel
 {
 public:
@@ -22,12 +20,12 @@ namespace Ui {
 	class CClassDiagram;
 }
 
-class CClassDiagram : public QFrame
+class CClassDiagram : public QWidget
 {
 	Q_OBJECT
 
 public:
-	explicit CClassDiagram();
+	explicit CClassDiagram(QWidget* parent = 0);
 	~CClassDiagram();
 
 protected:
@@ -39,6 +37,4 @@ protected:
 private:
 	QPoint	m_oldPos;
 	Ui::CClassDiagram *ui;
-
-	Curtail *m_pCurtain = nullptr;
 };

@@ -19,6 +19,7 @@ protected:
 	void dropEvent(QDropEvent *event);
 
 private:
+	void test();
 	Curtail *m_pCurtain = nullptr;
 	const int s_kCurtainWidth = 2000;
 	const int s_kCurtainHeight = 3000;

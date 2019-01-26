@@ -12,6 +12,8 @@ MidWindow::MidWindow(QWidget *parent)
 	m_pCurtain = new Curtail(s_kCurtainWidth, s_kCurtainHeight, s_kPointDiameter, s_kPointDistance);
 
 	setAcceptDrops(true);
+
+	test();
 }
 
 MidWindow::~MidWindow()
@@ -59,4 +61,11 @@ void MidWindow::dropEvent(QDropEvent *event)
 	}
 
 	event->acceptProposedAction();
+}
+
+void MidWindow::test()
+{
+	CClassDiagram *c = new CClassDiagram();
+	c->setParent(this);
+	c->move(10, 10);
 }
