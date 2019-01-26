@@ -20,8 +20,11 @@ Curtail::~Curtail()
 
 void Curtail::SetWidthHeigh(int width, int heigh)
 {
+	if (m_Width == width && m_Heigh == heigh)
+		return;
 	m_Width = width;
 	m_Heigh = heigh;
+	Draw();
 }
 
 void Curtail::SetDiameter(int a_diameter)
@@ -42,17 +45,19 @@ void Curtail::Draw()
 	m_pCurtain = new QPixmap(m_Width, m_Heigh);
 	m_pCurtain->fill(Qt::white);
 
-	QPen pen;
-	pen.setWidth(m_PointDiameter);
 
-	QPainter painter(m_pCurtain);
-	painter.setPen(pen);
-
-	for (auto i = 1; i < m_Width; i = i + m_PointDistance)
-		for (auto j = 1; j < m_Heigh; j = j + m_PointDistance)
-		{
-			painter.drawPoint(i, j);
-		}
+	if (m_PointDistance > 0)
+	{
+		QPen pen;
+		pen.setWidth(m_PointDiameter);
+		QPainter painter(m_pCurtain);
+		painter.setPen(pen);
+		for (auto i = 1; i < m_Width; i = i + m_PointDistance)
+			for (auto j = 1; j < m_Heigh; j = j + m_PointDistance)
+			{
+				painter.drawPoint(i, j);
+			}
+	}
 }
 
 const QPixmap& Curtail::GetPixmap()

@@ -26,7 +26,6 @@ void MidWindow::paintEvent(QPaintEvent *)
 	painter.drawPixmap(0, 0, m_pCurtain->GetPixmap());
 }
 
-
 void MidWindow::dragEnterEvent(QDragEnterEvent *event)
 {
 	event->acceptProposedAction();

@@ -1,5 +1,6 @@
 #include "class.h"
-#include "Qt.h"
+#include "ui_class.h"
+#include "curtail.h"
 
 CClassLabel::CClassLabel()
 {
@@ -41,40 +42,43 @@ void CClassLabel::mouseMoveEvent(QMouseEvent *event)
 }
 
 CClassDiagram::CClassDiagram()
+	: ui(new Ui::CClassDiagram)
 {
-	QVBoxLayout *layout = new QVBoxLayout;
-	{
-		QLabel *l = new QLabel("CLASS");
-		layout->addWidget(l);
-	}
-	{
-		QVBoxLayout *layoutMember = new QVBoxLayout;
-		QWidget *wMember = new QWidget;
-		wMember->setLayout(layoutMember);
-		layout->addWidget(wMember);
-	}
-	{
-		QVBoxLayout *layoutFunc = new QVBoxLayout;
-		QWidget *wFunc = new QWidget;
-		wFunc->setLayout(layoutFunc);
-		layout->addWidget(wFunc);
-	}
+	ui->setupUi(this);
 
-	this->setLayout(layout);
+	//this->setAttribute(Qt::WA_StyledBackground);
+	setStyleSheet("QFrame{"
+		//"background-color:#FFFFFF;"
+		"border:2px solid gray;"
+		"}");
+
+	m_pCurtain = new Curtail(width(), height(), 0, 0);
+
+	connect(ui->btn_add_attribute, &QPushButton::clicked, this, [&]() {
+		QLabel *l = new QLabel("Attribute");
+		ui->layout_attribute->addWidget(l);
+		update();
+	});
+	connect(ui->btn_add_operation, &QPushButton::clicked, this, [&]() {
+		QLabel *l = new QLabel("Operation");
+		ui->layout_operation->addWidget(l);
+		update();
+	});
 }
 
 CClassDiagram::~CClassDiagram()
 {
+	delete ui;
 }
 
 void CClassDiagram::paintEvent(QPaintEvent *)
 {
+	setFixedSize(sizeHint());
+
 	QPainter painter(this);
+	painter.drawPixmap(0, 0, m_pCurtain->GetPixmap());
+	m_pCurtain->SetWidthHeigh(width(), height());
 
-	QPixmap* map = new QPixmap(this->width(), this->height());
-	map->fill(Qt::white);
-
-	painter.drawPixmap(0, 0, *map);
 }
 
 void CClassDiagram::mousePressEvent(QMouseEvent *event)
@@ -87,6 +91,8 @@ void CClassDiagram::mouseMoveEvent(QMouseEvent *event)
 {
 	if (event->buttons() & Qt::LeftButton)
 	{
+		if (m_oldPos.x() == 0 && m_oldPos.y() == 0)
+			return;
 		QPoint orgPoint = this->pos();
 		QPoint p = event->pos();
 		move(orgPoint + p - m_oldPos);
@@ -95,4 +101,5 @@ void CClassDiagram::mouseMoveEvent(QMouseEvent *event)
 
 void CClassDiagram::mouseReleaseEvent(QMouseEvent *)
 {
+	m_oldPos = QPoint(0, 0);
 }

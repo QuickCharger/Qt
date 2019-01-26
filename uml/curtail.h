@@ -6,7 +6,7 @@ class Curtail
 {
 public:
 	Curtail();
-	Curtail(int a_width, int a_heigh, int a_PointDiameter, int a_PointDistance);
+	Curtail(int a_width, int a_heigh, int a_PointDiameter = 0, int a_PointDistance = 0);
 	~Curtail();
 	void SetWidthHeigh(int width, int heigh);
 	void SetDiameter(int);

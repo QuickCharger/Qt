@@ -2,6 +2,8 @@
 
 #include "Qt.h"
 
+class Curtail;
+
 class CClassLabel : public QLabel
 {
 public:
@@ -16,10 +18,16 @@ private:
 	QPoint	m_oldPos;
 };
 
+namespace Ui {
+	class CClassDiagram;
+}
+
 class CClassDiagram : public QFrame
 {
+	Q_OBJECT
+
 public:
-	CClassDiagram();
+	explicit CClassDiagram();
 	~CClassDiagram();
 
 protected:
@@ -30,4 +38,7 @@ protected:
 	virtual void mouseReleaseEvent(QMouseEvent *);
 private:
 	QPoint	m_oldPos;
+	Ui::CClassDiagram *ui;
+
+	Curtail *m_pCurtain = nullptr;
 };
