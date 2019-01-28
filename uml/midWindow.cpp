@@ -54,8 +54,8 @@ void MidWindow::dropEvent(QDropEvent *event)
 	else if (mimeData->hasText())
 	{
 		qDebug() << "has Text: " << mimeData->text();
-		QWidget *w = CreateComponent(mimeData->text());
-		w->setParent(this);
+		QWidget *w = CreateComponent(mimeData->text(), this);
+		//w->setParent(this);
 		w->show();
 		w->move(event->pos() - QPoint(w->width() / 2, w->height() / 2));
 	}
@@ -68,4 +68,5 @@ void MidWindow::test()
 	CClassDiagram *c = new CClassDiagram();
 	c->setParent(this);
 	c->move(10, 10);
+	c->Test();
 }

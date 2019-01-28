@@ -20,6 +20,24 @@ namespace Ui {
 	class CClassDiagram;
 }
 
+/*
+* Ë«»÷ÐÞ¸ÄÄÚÈÝ
+*/
+class LineEdit : public QLineEdit
+{
+	Q_OBJECT
+public:
+	LineEdit(const char* pCh);
+	~LineEdit();
+//protected:
+	virtual void mouseDoubleClickEvent(QMouseEvent *);
+//	virtual void mousePressEvent(QMouseEvent *);
+
+private:
+	void setStyleEditing(bool);
+	QAction *m_act = nullptr;
+};
+
 class CClassDiagram : public QWidget
 {
 	Q_OBJECT
@@ -27,6 +45,7 @@ class CClassDiagram : public QWidget
 public:
 	explicit CClassDiagram(QWidget* parent = 0);
 	~CClassDiagram();
+	void Test();
 
 protected:
 	virtual void paintEvent(QPaintEvent *event);

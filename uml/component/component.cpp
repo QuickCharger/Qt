@@ -2,11 +2,11 @@
 
 #include "class.h"
 
-QWidget* CreateComponent(QString& name)
+QWidget* CreateComponent(QString& name, QWidget* parent)
 {
 	if (name == "class")
 	{
-		return new CClassDiagram();
+		return new CClassDiagram(parent);
 	}
 	return nullptr;
 }
