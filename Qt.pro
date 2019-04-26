@@ -24,6 +24,11 @@
 
 TEMPLATE     = subdirs
 
+include($$PWD/lib_json/lib_json.pri)
+include($$PWD/lib_light/lib_light.pri)
+include($$PWD/lib_qrencode/lib_qrencode.pri)
+include($$PWD/lib_quazip/lib_quazip.pri)
+
 SUBDIRS += \
     dnd\
     qml\
