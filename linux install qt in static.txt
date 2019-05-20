@@ -1,0 +1,30 @@
+down package from: http://mirrors.ustc.edu.cn/qtproject/official_releases/qt/5.11/5.11.1/submodules/qtbase-everywhere-src-5.11.1.tar.xz
+
+tar -xvf filename
+enter folder
+./configure --prefix="/usr/local/Qt5.11.1-linux-static" -release -opensource -static -no-gui -no-icu -no-glib -no-iconv -nomake tests -nomake examples
+make -j2
+sudo make install
+
+create new .pro file with content like:
+QT -= gui
+TARGET = qttest
+SOURCES += main.cpp
+
+create new main.cpp file with content like:
+#include <QDebug>
+
+int main(int argc, char **argv) {
+	qDebug() << "hello, world";
+	return 0;
+}
+
+
+compile
+/usr/local/Qt5.11.1-linux-static/bin/qmake
+make
+after this two steps. executable has been create successed
+
+
+thanks with this article
+	https://hgoldfish.com/blogs/article/107/
