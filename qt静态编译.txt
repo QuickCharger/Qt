@@ -1,0 +1,25 @@
+wget http://mirrors.ustc.edu.cn/qtproject/official_releases/qt/5.11/5.11.1/submodules/qtbase-everywhere-src-5.11.1.tar.xz
+tar -xvf qtbase-everywhere-src-5.11.1.tar.xz
+cd qtbase-everywhere-src-5.11.1/
+./configure --prefix="/usr/local/Qt5.11.1-linux-static" -release -opensource -static -no-gui -no-icu -no-glib -no-iconv -nomake tests -nomake examples
+make -j8
+sudo make install
+
+# `/workon/qtttest/qttest.pro
+QT -= gui
+TARGET = qttest
+SOURCES += main.cpp
+
+// `/workon/qtttest/main.cpp
+#include <QDebug>
+int main(int argc, char **argv)
+{
+	qDebug() << "hello, world";
+	return 0;
+}
+
+cd ~/workon/qttest
+/usr/local/Qt-5.11.1-linux-static/bin/qmake
+make
+./qttest
+readelf -d qttest

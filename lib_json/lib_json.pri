@@ -1,4 +1,5 @@
 INCLUDEPATH += $$PWD
+INCLUDEPATH += $$PWD/include
 DEPENDPATH += $$PWD
 
 SOURCES += \
@@ -6,8 +7,7 @@ SOURCES += \
     $$PWD/src/json_tool.h \
     $$PWD/src/json_value.cpp \
     $$PWD/src/json_valueiterator.inl \
-    $$PWD/src/json_writer.cpp \
-    $$PWD/src/version.h.in
+    $$PWD/src/json_writer.cpp
 
 HEADERS += \
     $$PWD/include/json/allocator.h \
