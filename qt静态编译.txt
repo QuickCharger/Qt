@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 }
 
 cd ~/workon/qttest
-/usr/local/Qt-5.12.9-linux-static/bin/qmake
+/usr/local/Qt5.12.9-linux-static/bin/qmake
 make
 ./qttest
 readelf -d qttest
