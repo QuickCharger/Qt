@@ -1,0 +1,72 @@
+# 这是一个简单的workflow教程 用于自动编译并上传编译结果
+# 大小写敏感 空格表示层级 数量不重要 只要相同的层级元素左侧对其即可 不允许使用tab！！！ 
+# https://oktools.net/json2yaml YAML和JSON可以相互转换！！！
+# 参考
+#  https://github.com/sdras/awesome-actions
+#  https://github.com/ad-m/github-push-action
+
+
+# animal: pets => {animal:'pets'}
+
+# - 开头行 一个数组的开始
+# -
+#   - CAT
+#   - DOG
+#   - FISH
+# 上面四行 => [['CAT', 'DOG', 'FISH']]
+
+# languages:
+#   - Ruby
+#   - Perl: "pl"
+#     Python: "py"
+# 表示为
+# languages: ['Ruby', {Perl:"pl", Python:"py"}]
+
+# Website:
+#   YAML: yaml.org
+#   Ruby: ruby-lang.org
+#   Python: python.org
+# 表示为
+# Website: {"YAML":"yaml.org", "Ruby":"ruby-lang.com", "Python":"python.org"}
+
+# this: |
+#   Foo
+#   Bar
+# 表示为 this: 'Foo\nBar\n'
+
+##################################################################################################
+
+name: CI-master
+
+on:
+  push:
+    branches: [ master, master/** ]
+  pull_request:
+    branches: [ master, master/** ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: create file
+        run: |
+          echo deployed successfully.
+          pwd
+          ls
+          echo "test push" > testpush
+      - name: Commit files
+        run: |
+          git config --local user.email "gitCI"
+          git config --local user.name "gitCI"
+          git add -A testpush
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.testCI }}
+          branch: ${{ github.ref }}
