@@ -1,7 +1,7 @@
 wget https://mirrors.tuna.tsinghua.edu.cn/qt/archive/qt/5.12/5.12.9/submodules/qtbase-everywhere-src-5.12.9.tar.xz
 tar -xvf qtbase-everywhere-src-5.12.9.tar.xz
 cd qtbase-everywhere-src-5.12.9/
-./configure --prefix="/usr/local/Qt5.12.9-linux-static" -release -opensource -static -no-gui -no-icu -no-glib -no-iconv -nomake tests -nomake examples
+./configure --prefix="/usr/local/Qt5.12.9-linux-static" -release -confirm-license -opensource -static -no-gui -no-icu -no-glib -no-iconv -nomake tests -nomake examples
 make -j8
 sudo make install
 
