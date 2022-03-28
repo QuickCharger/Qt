@@ -23,3 +23,16 @@ cd ~/workon/qttest
 make
 ./qttest
 readelf -d qttest
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+windows static build
+wget https://mirrors.tuna.tsinghua.edu.cn/qt/archive/qt/5.12/5.12.12/single/qt-everywhere-src-5.12.12.tar.xz
+tar -xvf qt-everywhere-src-5.12.12.tar.xz
+cd qt-everywhere-src-5.12.12/
+先看 readme 安装必须软件
+vs201x开发人员命令提示中 执行：
+configure.bat -static -prefix "D:\qt_5.12.12" -confirm-license -opensource -debug-and-release -platform win32-msvc -nomake examples -nomake tests -plugin-sql-sqlite -plugin-sql-odbc -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -mp
+nmake
+nmake install
