@@ -59,7 +59,7 @@ jobs:
           wget https://download.qt.io/archive/qt/5.12/5.12.12/submodules/qtbase-everywhere-src-5.12.12.tar.xz
           tar -xf qtbase-everywhere-src-5.12.12.tar.xz
           cd qtbase-everywhere-src-5.12.12/
-          echo yes | ./configure --prefix="$(pwd)/../qt5" -release -opensource -static -no-gui -no-icu -no-glib -no-iconv -nomake tests -nomake examples
+          ./configure --prefix="$(pwd)/../qt5" -confirm-license -release -opensource -static -no-gui -qt-pcre -no-icu -no-opengl -no-glib -no-iconv -nomake tests -nomake examples
           make -j8 > /dev/null
           make install
           popd
@@ -67,7 +67,10 @@ jobs:
         run: |
           ~/qt5/bin/qmake
           make
-		  # todo
+          if [ ! -d bin ]; then
+          mkdir bin
+          fi
+          cp testpush bin/
       - name: Commit files
         run: |
           git config --local user.email "gitCI"
