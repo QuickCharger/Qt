@@ -1,4 +1,4 @@
 未将对象引用设置到对象的实例 的解决方法
 qt-vs-tools-msvc2015-2.1.1.vsix  这个版本可用  2.7.2会报错
 番茄助手 不确定是否这个问题 不过可试。  卸载不管用 需要删除C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio
-qt 5.9.9 这个版本可用
+qt 5.9.9 这个版本可用  5.12.12 这个版本也可用
