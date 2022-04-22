@@ -31,9 +31,10 @@ windows static build
 wget https://mirrors.tuna.tsinghua.edu.cn/qt/archive/qt/5.12/5.12.12/single/qt-everywhere-src-5.12.12.tar.xz
 tar -xf qt-everywhere-src-5.12.12.tar.xz
 cd qt-everywhere-src-5.12.12/
-qtbase\mkspecs\common\msvc-desktop.conf  -MD => -MT  -MDd => -MTd		// 可以不进行这个操作 操作后生成的项目exe会明显变小 ！！！
+qtbase\mkspecs\common\msvc-desktop.conf  -MD => -MT  -MDd => -MTd		// 操作后生成的项目exe不需要依赖vs库 ！！！
 先看 readme 安装必须软件
 vs201x开发人员命令提示中 执行：
-configure.bat -static -prefix "D:\qt_5.12.12_2_mt" -confirm-license -opensource -debug-and-release -platform win32-msvc -nomake examples -nomake tests -plugin-sql-sqlite -plugin-sql-odbc -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -mp
-nmake				// 如果有jom 则添加path 直接敲 "jom /J 4"
-nmake install		// 如果有jom 则添加path 直接敲 "jom install"
+configure.bat -static -prefix "D:\qt_5.12.12_2_vs2015_static" -confirm-license -opensource -debug-and-release -platform win32-msvc -nomake examples -nomake tests -plugin-sql-sqlite -plugin-sql-odbc -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -mp
+jom && jom install		快很多
+或者
+nmake && nmake install
