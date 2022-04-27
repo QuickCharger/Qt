@@ -1,0 +1,11 @@
+qt不同的版本对ndk sdk都有版本要求
+
+已知的可用的版本
+qt5.12.6 armv7  只需要装这个 其余的armv8 mingw不用装
+jdk 1.8 8u201
+ndk r19c
+sdk android-sdk_r24.4.1-windows  理论上装上任意版本的通过SDK Manager.exe指定版本即可
+    /Tools/AndroidSDK Tools          不用指定版本 更新到最新即可 更新完后会消失
+    /Tools/AndroidSDK Platform-tools 不用指定版本 更新到最新即可
+    /Tools/AndroidSDK build-tools Rev.28.03
+    /Android 8.0.0(API 26)/SDK Platform 26
