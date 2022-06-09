@@ -1,0 +1,2 @@
+bundle ÃÌº”‘À––ø‚
+/Users/user/Qtxxx/5.xxx/clang_64/bin/macdeployqt xxx.app
